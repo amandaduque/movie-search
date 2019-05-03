@@ -1,0 +1,11 @@
+<button (click)="getAllMovies()">Get Movies</button>
+<div>
+    <p *ngFor="let movie of list"> {{ movie.title }}  {{ movie.vote_average }} {{ movie.release_date }} {{ movie.overview }}</p>
+</div>
+
+
+<movieList></movieList>
+<watchlistPage></watchlistPage>
+
+
+
