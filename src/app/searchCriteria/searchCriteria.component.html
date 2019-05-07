@@ -7,11 +7,11 @@
     <div class="filters">
         <div>
             <h4>Popularity</h4>
-                <select>
-                    <option>Highest to Lowest</option>
-                    <option>Lowest to Highest</option>
+                <select (change)="getPopValue($event)">
+                    <option value="most">Highest to Lowest</option>
+                    <option value="least">Lowest to Highest</option>
                 </select>
-            <button>Go</button>
+            <button (click)="getPopular()">Go</button>
         </div>
         <div>
             <h4>Genre</h4>
