@@ -13,12 +13,6 @@ interface ApiData {
   results: Movie[]
 }
 
-interface PopularSelect {
-  name: string,
-  value: string
-}
-
-
 @Component({
   selector: 'searchCriteria',
   templateUrl: './searchCriteria.component.html',
@@ -61,6 +55,10 @@ export class searchCriteriaComponent {
         },
       );
      }
+  }
+
+  scroll(el: HTMLElement) {
+    el.scrollIntoView({behavior: 'smooth'});
   }
   
 }
