@@ -13,9 +13,9 @@ export class movieListComponent {
     @Input() movie: Movie;
 
     watchlist: boolean = false;
-    urlFill: object = { base_url: 'https://image.tmdb.org/t/p/', poster_size: 'w342' };
     watchListArray=[];
-
+    urlFill: string = 'https://image.tmdb.org/t/p/w342';
+    
     watchlistThis = () => {
       this.watchlist = !this.watchlist;
       this.watchListArray.push(this.movie);
@@ -23,6 +23,11 @@ export class movieListComponent {
       
     }
 
-
- 
+    getUrl = () => {
+      if (this.movie.poster_path === null) {
+        return '../assets/pic-filler.png';
+      } else {
+        return `${this.urlFill}${this.movie.poster_path}`;
+      }
+    }
 }

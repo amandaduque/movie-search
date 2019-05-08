@@ -11,5 +11,4 @@ export class Api {
     getMovies = () => this.http.get(this.apiURL);
     getMostPopular = () => this.http.get(this.apiHighLow);
     getLeastPopular = () => this.http.get(this.apiLowHigh);
-    
 }
