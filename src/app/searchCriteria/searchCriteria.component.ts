@@ -56,9 +56,8 @@ export class searchCriteriaComponent {
       );
      }
   }
-
+  
   scroll(el: HTMLElement) {
     el.scrollIntoView({behavior: 'smooth'});
   }
-  
 }

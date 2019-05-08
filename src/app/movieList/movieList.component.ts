@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output } from '@angular/core';
 import { Movie } from '../searchCriteria/searchCriteria.component'
+import { watchlistPageComponent } from '../watchlistPage/watchlistPage.component';
 
 @Component({
   selector: 'movieList',
@@ -8,12 +9,18 @@ import { Movie } from '../searchCriteria/searchCriteria.component'
 })
 export class movieListComponent {
     title = "Movie List";
+
     @Input() movie: Movie;
+
     watchlist: boolean = false;
+    watchListArray=[];
     urlFill: string = 'https://image.tmdb.org/t/p/w342';
     
     watchlistThis = () => {
       this.watchlist = !this.watchlist;
+      this.watchListArray.push(this.movie);
+      console.log(this.watchListArray);
+      
     }
 
     getUrl = () => {

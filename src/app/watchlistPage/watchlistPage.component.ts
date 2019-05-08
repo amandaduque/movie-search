@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { movieListComponent } from '../movieList/movieList.component';
 
 @Component({
   selector: 'watchlistPage',
@@ -7,5 +8,6 @@ import { Component, Input } from '@angular/core';
 })
 export class watchlistPageComponent {
   title: 'Watchlist';
+  
   
 }
