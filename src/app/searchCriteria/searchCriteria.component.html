@@ -42,7 +42,7 @@
         </div>
         <div>
             <h4>Rating</h4>
-                <select (change)="getRateValue($event)" >
+                <select [(ngModel)]="rateValue" (change)="getRateValue($event)" >
                     <option value="default" disabled>Select Rating</option>
                     <option value="rate9">9</option>
                     <option value="rate8">8</option>
