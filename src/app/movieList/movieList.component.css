@@ -1,5 +1,6 @@
 .movie {
     max-width: 550px;
+    min-width: 300px;
     margin: 30px;
     display: flex;
     flex-direction: column;
@@ -25,20 +26,32 @@ img {
     margin-bottom: 30px;
 }
 
-a {
+.add > a {
     margin-left: 10px;
     text-decoration: underline;
     cursor: default;
     color: #6FE3B2;
 }
 
-i {
+.add > i {
     color: #6FE3B2;
+}
+
+.remove > a {
+    margin-left: 10px;
+    text-decoration: underline;
+    cursor: default;
+    color: #FF6A6A;
+}
+
+.remove > i {
+    color: #FF6A6A;
 }
 
 @media screen and (min-width: 768px) {
     .movie {
         flex-direction: row;
+        min-width: 550px;
     }
 
     img {

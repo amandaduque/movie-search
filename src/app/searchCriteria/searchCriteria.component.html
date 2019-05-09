@@ -11,16 +11,32 @@
                     <option value="most">Highest to Lowest</option>
                     <option value="least">Lowest to Highest</option>
                 </select>
-            <button (click)="getPopular()">Go</button>
+            <button (click)="getPopular(); scroll(target)">Go</button>
         </div>
         <div>
             <h4>Genre</h4>
-            <select>
-                <option>Action</option>
-                <option>Drama</option>
-                <option>Romance</option>
+            <select (change)="getGenreCatagory($event)">
+                <option value="action">Action</option>
+                <option value="adventure">Adventure</option>
+                <option value="animation">Animation</option>
+                <option value="comedy">Comedy</option>
+                <option value="crime">Crime</option>
+                <option value="documentary">Documentary</option>
+                <option value="drama">Drama</option>
+                <option value="family">Family</option>
+                <option value="fantasy">Fantasy</option>
+                <option value="history">History</option>
+                <option value="horror">Horror</option>
+                <option value="music">Music</option>
+                <option value="mystery">Mystery</option>
+                <option value="romance">Romance</option>
+                <option value="science">Science Fiction</option>
+                <option value="tv">TV Movie</option>
+                <option value="thriller">Thriller</option>
+                <option value="war">War</option>
+                <option value="western">Western</option>
             </select>
-            <button>Go</button>
+            <button (click)="getGenre()">Go</button>
         </div>
         <div>
             <h4>Rating</h4>
@@ -40,6 +56,7 @@
         </div>
     </div>
 </section>
+<div #target></div>
 <h2 class="movies-title">Movies</h2>
 <section class="movie-list">
     <movieList 

@@ -1,6 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output } from '@angular/core';
 import { Movie } from '../searchCriteria/searchCriteria.component'
-
 
 export interface Poster {
   base_url: string;
@@ -16,8 +15,17 @@ export class movieListComponent {
     title = "Movie List";
     @Input() movie: Movie;
     watchlist: boolean = false;
-    urlFill: Poster = { base_url: 'https://image.tmdb.org/t/p/', poster_size: 'w342' };
+    urlFill: string = 'https://image.tmdb.org/t/p/w342';
+    
     watchlistThis = () => {
       this.watchlist = !this.watchlist;
+    }
+
+    getUrl = () => {
+      if (this.movie.poster_path === null) {
+        return '../assets/pic-filler.png';
+      } else {
+        return `${this.urlFill}${this.movie.poster_path}`;
+      }
     }
 }

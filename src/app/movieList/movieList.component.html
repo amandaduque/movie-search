@@ -1,15 +1,15 @@
 <div class="movie">
-    <img src="{{ urlFill.base_url }}{{ urlFill.poster_size }}{{ movie.poster_path }}" />
+    <img src="{{ getUrl() }}" />
     <div>
         <h3>{{ movie.title }}</h3>
         <p class="underline">User Rating: {{ movie.vote_average }}</p>
         <p class="underline">Release Date: {{ movie.release_date }}</p>
         <p>{{ movie.overview }}</p>
-        <div (click)="watchlistThis()" *ngIf="!watchlist">
+        <div (click)="watchlistThis()" *ngIf="!watchlist" class="add">
             <i class="fas fa-heart"></i>
             <a>Add to Watchlist</a>
         </div>
-        <div (click)="watchlistThis()" *ngIf="watchlist">
+        <div (click)="watchlistThis()" *ngIf="watchlist" class="remove">
             <i class="fas fa-times"></i>
             <a>Remove from Watchlist</a>
         </div>
