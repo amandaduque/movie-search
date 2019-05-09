@@ -22,10 +22,19 @@ interface ApiData {
 
 export class searchCriteriaComponent {
   list: Movie[];
+  watchlist: Movie[] = [];
+  movie: Movie;
   errorMessage: string;
-  popValue: string;
-  genreCatagory: string;
+  popValue: string = 'default';
+  genreCatagory: string = 'default';
+  lastSearched: string;
   constructor(private api: Api) {}
+
+  watchList = ($event) => {
+    this.movie = $event;
+    this.watchlist.unshift(this.movie);
+    console.log(this.watchlist);
+  }
 
   ngOnInit() {
     this.api.getMovies().subscribe(
@@ -38,11 +47,13 @@ export class searchCriteriaComponent {
   getGenreCatagory = (event: any) => {
     this.genreCatagory = event.target.value;
   }
+
   getGenre = () => {
     if (this.genreCatagory === 'action'){
       this.api.getAction().subscribe(
         (data: ApiData) => {
           this.list = data.results;
+          this.lastSearched = "Action";
           console.log(this.list)
         }
       );
@@ -53,6 +64,7 @@ export class searchCriteriaComponent {
       this.api.getAdventure().subscribe(
         (data: ApiData) => {
           this.list = data.results;
+          this.lastSearched = "Adventure";
           console.log(this.list)
         }
       );
@@ -63,6 +75,7 @@ export class searchCriteriaComponent {
       this.api.getAnimation().subscribe(
         (data: ApiData) => {
           this.list = data.results;
+          this.lastSearched = "Animated";
           console.log(this.list)
         }
       );
@@ -73,6 +86,7 @@ export class searchCriteriaComponent {
       this.api.getComedy().subscribe(
         (data: ApiData) => {
           this.list = data.results;
+          this.lastSearched = "Comedy";
           console.log(this.list)
         }
       );
@@ -83,6 +97,7 @@ export class searchCriteriaComponent {
       this.api.getCrime().subscribe(
         (data: ApiData) => {
           this.list = data.results;
+          this.lastSearched = "Crime";
           console.log(this.list)
         }
       );
@@ -93,6 +108,7 @@ export class searchCriteriaComponent {
       this.api.getDocumentary().subscribe(
         (data: ApiData) => {
           this.list = data.results;
+          this.lastSearched = "Documentary";
           console.log(this.list)
         }
       );
@@ -103,6 +119,7 @@ export class searchCriteriaComponent {
       this.api.getDrama().subscribe(
         (data: ApiData) => {
           this.list = data.results;
+          this.lastSearched = "Drama";
           console.log(this.list)
         }
       );
@@ -113,6 +130,7 @@ export class searchCriteriaComponent {
       this.api.getFamily().subscribe(
         (data: ApiData) => {
           this.list = data.results;
+          this.lastSearched = "Family";
           console.log(this.list)
         }
       );
@@ -123,6 +141,7 @@ export class searchCriteriaComponent {
       this.api.getFantasy().subscribe(
         (data: ApiData) => {
           this.list = data.results;
+          this.lastSearched = "Fantasy";
           console.log(this.list)
         }
       );
@@ -133,6 +152,7 @@ export class searchCriteriaComponent {
       this.api.getHistory().subscribe(
         (data: ApiData) => {
           this.list = data.results;
+          this.lastSearched = "Historical";
           console.log(this.list)
         }
       );
@@ -143,6 +163,7 @@ export class searchCriteriaComponent {
       this.api.getHorror().subscribe(
         (data: ApiData) => {
           this.list = data.results;
+          this.lastSearched = "Horror";
           console.log(this.list)
         }
       );
@@ -153,6 +174,7 @@ export class searchCriteriaComponent {
       this.api.getMusic().subscribe(
         (data: ApiData) => {
           this.list = data.results;
+          this.lastSearched = "Music";
           console.log(this.list)
         }
       );
@@ -163,6 +185,7 @@ export class searchCriteriaComponent {
       this.api.getMystery().subscribe(
         (data: ApiData) => {
           this.list = data.results;
+          this.lastSearched = "Mystery";
           console.log(this.list)
         }
       );
@@ -173,6 +196,7 @@ export class searchCriteriaComponent {
       this.api.getRomance().subscribe(
         (data: ApiData) => {
           this.list = data.results;
+          this.lastSearched = "Romantic";
           console.log(this.list)
         }
       );
@@ -183,6 +207,7 @@ export class searchCriteriaComponent {
       this.api.getScience().subscribe(
         (data: ApiData) => {
           this.list = data.results;
+          this.lastSearched = "Sci-Fi";
           console.log(this.list)
         }
       );
@@ -193,6 +218,7 @@ export class searchCriteriaComponent {
       this.api.getTV().subscribe(
         (data: ApiData) => {
           this.list = data.results;
+          this.lastSearched = "Made for TV";
           console.log(this.list)
         }
       );
@@ -203,6 +229,7 @@ export class searchCriteriaComponent {
       this.api.getThriller().subscribe(
         (data: ApiData) => {
           this.list = data.results;
+          this.lastSearched = "Thriller";
           console.log(this.list)
         }
       );
@@ -212,6 +239,7 @@ export class searchCriteriaComponent {
       this.api.getWar().subscribe(
         (data: ApiData) => {
           this.list = data.results;
+          this.lastSearched = "War";
           console.log(this.list)
         }
       );
@@ -222,6 +250,7 @@ export class searchCriteriaComponent {
       this.api.getWestern().subscribe(
         (data: ApiData) => {
           this.list = data.results;
+          this.lastSearched = "Western";
           console.log(this.list)
         }
       );
@@ -238,6 +267,7 @@ export class searchCriteriaComponent {
       this.api.getLeastPopular().subscribe(
         (data: ApiData) => {
           this.list = data.results;
+          this.lastSearched = "Least Popular";
           console.log(this.list);
         },
       );
@@ -246,10 +276,16 @@ export class searchCriteriaComponent {
       this.api.getMostPopular().subscribe(
         (data: ApiData) => {
           this.list = data.results;
+          this.lastSearched = "Most Popular";
           console.log(this.list);
         },
       );
      }
+  }
+
+  clear = () => {
+    this.popValue = 'default';
+    this.genreCatagory = 'default';
   }
   
   scroll(el: HTMLElement) {

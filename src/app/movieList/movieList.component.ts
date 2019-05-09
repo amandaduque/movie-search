@@ -1,6 +1,5 @@
-import { Component, Input, Output } from '@angular/core';
+import { Component, Input, EventEmitter, Output } from '@angular/core';
 import { Movie } from '../searchCriteria/searchCriteria.component'
-import { watchlistPageComponent } from '../watchlistPage/watchlistPage.component';
 
 @Component({
   selector: 'movieList',
@@ -11,16 +10,15 @@ export class movieListComponent {
     title = "Movie List";
 
     @Input() movie: Movie;
+    @Output() watchlisted = new EventEmitter<Movie>();
 
     watchlist: boolean = false;
-    watchListArray=[];
     urlFill: string = 'https://image.tmdb.org/t/p/w342';
     
     watchlistThis = () => {
       this.watchlist = !this.watchlist;
-      this.watchListArray.push(this.movie);
-      console.log(this.watchListArray);
-      
+      const movie = this.movie;
+      this.watchlisted.emit(movie);
     }
 
     getUrl = () => {
