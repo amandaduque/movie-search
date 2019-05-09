@@ -43,7 +43,7 @@
         <div>
             <h4>Rating</h4>
                 <select (change)="getRateValue($event)" >
-                    <option></option>
+                    <option value="default" disabled>Select Rating</option>
                     <option value="rate9">9</option>
                     <option value="rate8">8</option>
                     <option value="rate7">7</option>
@@ -54,7 +54,7 @@
                     <option value="rate2">2</option>
                     <option value="rate1">1</option>
                 </select>
-            <button (click)="getRating()">Go</button>
+            <button (click)="getRating(); scroll(target); clear()">Go</button>
         </div>
     </div>
 </section>

@@ -63,13 +63,13 @@ export class Api {
     getMostPopular = () => this.http.get(this.apiHighLow);
     getLeastPopular = () => this.http.get(this.apiLowHigh);
 
-    getrate1 = () => this.http.get(this.apiRating1);
-    getrate2 = () => this.http.get(this.apiRating2);
-    getrate3 = () => this.http.get(this.apiRating3);
-    getrate4 = () => this.http.get(this.apiRating4);
-    getrate5 = () => this.http.get(this.apiRating5);
-    getrate6 = () => this.http.get(this.apiRating6);
-    getrate7 = () => this.http.get(this.apiRating7);
-    getrate8 = () => this.http.get(this.apiRating8);
-    getrate9 = () => this.http.get(this.apiRating9);
+    getRate1 = () => this.http.get(this.apiRating1);
+    getRate2 = () => this.http.get(this.apiRating2);
+    getRate3 = () => this.http.get(this.apiRating3);
+    getRate4 = () => this.http.get(this.apiRating4);
+    getRate5 = () => this.http.get(this.apiRating5);
+    getRate6 = () => this.http.get(this.apiRating6);
+    getRate7 = () => this.http.get(this.apiRating7);
+    getRate8 = () => this.http.get(this.apiRating8);
+    getRate9 = () => this.http.get(this.apiRating9);
 }
