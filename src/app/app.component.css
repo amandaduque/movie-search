@@ -28,8 +28,8 @@ img {
 nav a:last-child {
     margin-left: auto;
     margin-right: 30px;
-    padding: 10px 20px;
     border-radius: 100px;
+    padding: 10px
 }
 
 nav a:last-child:hover {

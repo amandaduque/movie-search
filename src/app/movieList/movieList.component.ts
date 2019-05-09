@@ -1,10 +1,5 @@
-import { Component, Input, Output } from '@angular/core';
+import { Component, Input, EventEmitter, Output } from '@angular/core';
 import { Movie } from '../searchCriteria/searchCriteria.component'
-
-export interface Poster {
-  base_url: string;
-  poster_size: string;
-}
 
 @Component({
   selector: 'movieList',
@@ -14,11 +9,15 @@ export interface Poster {
 export class movieListComponent {
     title = "Movie List";
     @Input() movie: Movie;
+    @Output() watchlisted = new EventEmitter<Movie>();
+
     watchlist: boolean = false;
     urlFill: string = 'https://image.tmdb.org/t/p/w342';
     
     watchlistThis = () => {
       this.watchlist = !this.watchlist;
+      const movie = this.movie;
+      this.watchlisted.emit(movie);
     }
 
     getUrl = () => {
