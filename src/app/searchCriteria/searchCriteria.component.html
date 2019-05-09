@@ -42,15 +42,19 @@
         </div>
         <div>
             <h4>Rating</h4>
-                <select>
-                    <option disabled>Select Rating</option>
-                    <option>9</option>
-                    <option>8</option>
-                    <option>7</option>
-                    <option>6</option>
-                    <option>5</option>
+                <select (change)="getRateValue($event)" >
+                    <option></option>
+                    <option value="rate9">9</option>
+                    <option value="rate8">8</option>
+                    <option value="rate7">7</option>
+                    <option value="rate6">6</option>
+                    <option value="rate5">5</option>
+                    <option value="rate4">4</option>
+                    <option value="rate3">3</option>
+                    <option value="rate2">2</option>
+                    <option value="rate1">1</option>
                 </select>
-            <button>Go</button>
+            <button (click)="getRating()">Go</button>
         </div>
     </div>
 </section>

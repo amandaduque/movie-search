@@ -8,7 +8,6 @@ import { Movie } from '../searchCriteria/searchCriteria.component'
 })
 export class movieListComponent {
     title = "Movie List";
-
     @Input() movie: Movie;
     @Output() watchlisted = new EventEmitter<Movie>();
 

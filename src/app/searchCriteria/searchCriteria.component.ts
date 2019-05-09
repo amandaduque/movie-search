@@ -25,9 +25,12 @@ export class searchCriteriaComponent {
   watchlist: Movie[] = [];
   movie: Movie;
   errorMessage: string;
+
   popValue: string = 'default';
   genreCatagory: string = 'default';
   lastSearched: string;
+  rateValue: string;
+
   constructor(private api: Api) {}
 
   watchList = ($event) => {
@@ -288,6 +291,84 @@ export class searchCriteriaComponent {
     this.genreCatagory = 'default';
   }
   
+  getRateValue = (event: any) => {
+    this.rateValue = event.target.value;
+  }
+
+  getRating = () => {
+    if (this.rateValue === 'rate1') {
+      this.api.getrate1().subscribe(
+        (data: ApiData) => {
+          this.list = data.results;
+          console.log(this.list);
+        },
+      );
+    }
+    if (this.rateValue === 'rate2') {
+      this.api.getrate2().subscribe(
+        (data: ApiData) => {
+          this.list = data.results;
+          console.log(this.list);
+        },
+      );
+    }
+    if (this.rateValue === 'rate3') {
+      this.api.getrate3().subscribe(
+        (data: ApiData) => {
+          this.list = data.results;
+          console.log(this.list);
+        },
+      );
+    }
+    if (this.rateValue === 'rate4') {
+      this.api.getrate4().subscribe(
+        (data: ApiData) => {
+          this.list = data.results;
+          console.log(this.list);
+        },
+      );
+    }
+    if (this.rateValue === 'rate5') {
+      this.api.getrate5().subscribe(
+        (data: ApiData) => {
+          this.list = data.results;
+          console.log(this.list);
+        },
+      );
+    }
+    if (this.rateValue === 'rate6') {
+      this.api.getrate6().subscribe(
+        (data: ApiData) => {
+          this.list = data.results;
+          console.log(this.list);
+        },
+      );
+    }
+    if (this.rateValue === 'rate7') {
+      this.api.getrate7().subscribe(
+        (data: ApiData) => {
+          this.list = data.results;
+          console.log(this.list);
+        },
+      );
+    }
+    if (this.rateValue === 'rate8') {
+      this.api.getrate8().subscribe(
+        (data: ApiData) => {
+          this.list = data.results;
+          console.log(this.list);
+        },
+      );
+    }
+    if (this.rateValue === 'rate9') {
+      this.api.getrate9().subscribe(
+        (data: ApiData) => {
+          this.list = data.results;
+          console.log(this.list);
+        },
+      );
+    }
+
   scroll(el: HTMLElement) {
     el.scrollIntoView({behavior: 'smooth'});
   }
