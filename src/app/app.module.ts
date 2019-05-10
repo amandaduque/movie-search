@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { searchCriteriaComponent } from './searchCriteria/searchCriteria.component';
 import { watchlistPageComponent } from './watchlistPage/watchlistPage.component';
 import { movieListComponent } from './movieList/movieList.component';
+import { Api } from './services/api.service';
 
 const appRoutes: Routes = [
   {path: '', component: searchCriteriaComponent},
@@ -22,7 +23,7 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule, FormsModule, AppRoutingModule, HttpClientModule, RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [Api],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
