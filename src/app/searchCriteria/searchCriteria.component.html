@@ -7,42 +7,64 @@
     <div class="filters">
         <div>
             <h4>Popularity</h4>
-                <select (change)="getPopValue($event)">
+                <select [(ngModel)]="popValue" (change)="getPopValue($event)">
+                    <option value="default" disabled>Select Popularity</option>
                     <option value="most">Highest to Lowest</option>
                     <option value="least">Lowest to Highest</option>
                 </select>
-            <button (click)="getPopular(); scroll(target)">Go</button>
+            <button (click)="getPopular(); scroll(target); clear()">Go</button>
         </div>
         <div>
             <h4>Genre</h4>
-            <select>
-                <option disabled>Select Genre</option>
-                <option>Action</option>
-                <option>Drama</option>
-                <option>Romance</option>
+            <select [(ngModel)]="genreCatagory" (change)="getGenreCatagory($event)">
+                <option value="default" disabled>Select Genre</option>
+                <option value="action">Action</option>
+                <option value="adventure">Adventure</option>
+                <option value="animation">Animation</option>
+                <option value="comedy">Comedy</option>
+                <option value="crime">Crime</option>
+                <option value="documentary">Documentary</option>
+                <option value="drama">Drama</option>
+                <option value="family">Family</option>
+                <option value="fantasy">Fantasy</option>
+                <option value="history">History</option>
+                <option value="horror">Horror</option>
+                <option value="music">Music</option>
+                <option value="mystery">Mystery</option>
+                <option value="romance">Romance</option>
+                <option value="science">Science Fiction</option>
+                <option value="tv">TV Movie</option>
+                <option value="thriller">Thriller</option>
+                <option value="war">War</option>
+                <option value="western">Western</option>
             </select>
-            <button>Go</button>
+            <button (click)="getGenre(); scroll(target); clear()">Go</button>
         </div>
         <div>
             <h4>Rating</h4>
-                <select>
-                    <option disabled>Select Rating</option>
-                    <option>9</option>
-                    <option>8</option>
-                    <option>7</option>
-                    <option>6</option>
-                    <option>5</option>
+                <select [(ngModel)]="rateValue" (change)="getRateValue($event)" >
+                    <option value="default" disabled>Select Rating</option>
+                    <option value="rate9">9</option>
+                    <option value="rate8">8</option>
+                    <option value="rate7">7</option>
+                    <option value="rate6">6</option>
+                    <option value="rate5">5</option>
+                    <option value="rate4">4</option>
+                    <option value="rate3">3</option>
+                    <option value="rate2">2</option>
+                    <option value="rate1">1</option>
                 </select>
-            <button>Go</button>
+            <button (click)="getRating(); scroll(target); clear()">Go</button>
         </div>
     </div>
 </section>
 <div #target></div>
-<h2 class="movies-title">Movies</h2>
+<h2 class="movies-title">{{ lastSearched }} Movies</h2>
 <section class="movie-list">
     <movieList 
     *ngFor="let movie of list"
-    [movie]="movie">
+    [movie]="movie"
+    (watchlisted)="watchList($event)">
     </movieList>
 </section>
 

@@ -15,18 +15,17 @@ interface ApiData {
   results: Movie[]
 }
 
-
-
-
 @Component({
   selector: 'movieList',
   templateUrl: './movieList.component.html',
   styleUrls: ['./movieList.component.css']
 })
+
 export class movieListComponent {
     title = "Movie List";
     watchList: any[];
     @Input() movie: Movie;
+    @Output() watchlisted = new EventEmitter<Movie>();
 
     watchlist: boolean = false;
     urlFill: string = 'https://image.tmdb.org/t/p/w342';
@@ -38,11 +37,7 @@ export class movieListComponent {
     watchlistThis = () => {
       this.watchlist = !this.watchlist;
       this.watchList.push(this.movie);
-      
-  
-
       this.api.addMovie(this.watchList)
-      
     }
 
     getUrl = () => {
