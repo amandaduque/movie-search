@@ -17,7 +17,7 @@ interface ApiData {
   selector: 'searchCriteria',
   templateUrl: './searchCriteria.component.html',
   styleUrls: ['./searchCriteria.component.css'],
-  providers: [Api]
+  providers: []
 })
 
 export class searchCriteriaComponent {

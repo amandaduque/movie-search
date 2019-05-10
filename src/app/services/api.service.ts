@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable, BehaviorSubject } from 'rxjs';
 
 @Injectable()
 export class Api {
@@ -25,6 +26,10 @@ export class Api {
     apiURL = 'https://api.themoviedb.org/3/movie/top_rated?api_key=7213cee51893c8ccbb54b6ed9c49007b&language=en-US&page=1';
     apiHighLow = 'https://api.themoviedb.org/3/discover/movie?api_key=7213cee51893c8ccbb54b6ed9c49007b&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1';
     apiLowHigh = 'https://api.themoviedb.org/3/discover/movie?api_key=7213cee51893c8ccbb54b6ed9c49007b&language=en-US&sort_by=popularity.asc&include_adult=false&include_video=false&page=1';
+    
+    private _watchListArray = new BehaviorSubject([]);
+    watchListArray = this._watchListArray.asObservable();
+
     apiRating1 = 'https://api.themoviedb.org/3/discover/movie?api_key=7213cee51893c8ccbb54b6ed9c49007b&language=en-US&sort_by=vote_average.asc&include_adult=false&include_video=false&page=1&vote_average.gte=1';
     apiRating2 = 'https://api.themoviedb.org/3/discover/movie?api_key=7213cee51893c8ccbb54b6ed9c49007b&language=en-US&sort_by=vote_average.asc&include_adult=false&include_video=false&page=1&vote_average.gte=2';
     apiRating3 = 'https://api.themoviedb.org/3/discover/movie?api_key=7213cee51893c8ccbb54b6ed9c49007b&language=en-US&sort_by=vote_average.asc&include_adult=false&include_video=false&page=1&vote_average.gte=3';
@@ -34,8 +39,6 @@ export class Api {
     apiRating7 = 'https://api.themoviedb.org/3/discover/movie?api_key=7213cee51893c8ccbb54b6ed9c49007b&language=en-US&sort_by=vote_average.asc&include_adult=false&include_video=false&page=1&vote_average.gte=7';
     apiRating8 = 'https://api.themoviedb.org/3/discover/movie?api_key=7213cee51893c8ccbb54b6ed9c49007b&language=en-US&sort_by=vote_average.asc&include_adult=false&include_video=false&page=1&vote_average.gte=8';
     apiRating9 = 'https://api.themoviedb.org/3/discover/movie?api_key=7213cee51893c8ccbb54b6ed9c49007b&language=en-US&sort_by=vote_average.asc&include_adult=false&include_video=false&page=1&vote_average.gte=9';
-
-
 
     constructor(private http: HttpClient) {}
 
@@ -63,6 +66,8 @@ export class Api {
     getMostPopular = () => this.http.get(this.apiHighLow);
     getLeastPopular = () => this.http.get(this.apiLowHigh);
 
+    addMovie = newList => this._watchListArray.next(newList);
+
     getRate1 = () => this.http.get(this.apiRating1);
     getRate2 = () => this.http.get(this.apiRating2);
     getRate3 = () => this.http.get(this.apiRating3);
@@ -73,3 +78,4 @@ export class Api {
     getRate8 = () => this.http.get(this.apiRating8);
     getRate9 = () => this.http.get(this.apiRating9);
 }
+

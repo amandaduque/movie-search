@@ -2,4 +2,15 @@
     <h1>Your Watchlist</h1>
 </section>
 <h2>Watchlist</h2>
+<!-- <h3>{{ movie.title }}</h3> -->
 
+
+<div *ngFor="let movie of watchList">{{movie.title}}
+
+<p class="underline">User Rating: {{ movie.vote_average }}</p>
+<p class="underline">Release Date: {{ movie.release_date }}</p>
+<p>{{ movie.overview }}</p>
+        
+                
+                
+</div>
