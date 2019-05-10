@@ -2,15 +2,18 @@
     <h1>Your Watchlist</h1>
 </section>
 <h2>Watchlist</h2>
-<!-- <h3>{{ movie.title }}</h3> -->
-
-
-<div *ngFor="let movie of watchList">{{movie.title}}
-
-<p class="underline">User Rating: {{ movie.vote_average }}</p>
-<p class="underline">Release Date: {{ movie.release_date }}</p>
-<p>{{ movie.overview }}</p>
-        
-                
-                
-</div>
+<section class="movie-list">
+    <div *ngFor="let movie of watchList; let i = index" class="movie">
+        <img src="{{ getUrl(i) }}" />
+        <div>
+            <h3>{{ movie.title }}</h3>
+            <p class="underline">User Rating: {{ movie.vote_average }}</p>
+            <p class="underline">Release Date: {{ movie.release_date }}</p>
+            <p>{{ movie.overview }}</p>
+            <div (click)="watchlistRemove(i)" class="remove">
+                <i class="fas fa-times"></i>
+                <a>Remove from Watchlist</a>
+            </div>      
+        </div>                          
+    </div>
+</section>
