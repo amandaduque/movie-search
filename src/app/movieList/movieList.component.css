@@ -36,14 +36,12 @@ img {
     color: #6FE3B2;
 }
 
-.remove > a {
-    margin-left: 10px;
-    text-decoration: underline;
+.added > a {
     cursor: default;
     color: #FF6A6A;
 }
 
-.remove > i {
+.added > i {
     color: #FF6A6A;
 }
 

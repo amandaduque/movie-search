@@ -23,3 +23,72 @@ h2 {
     border-bottom: 1px solid #000;
     text-transform: uppercase;
 }
+
+.movie-list {
+    display: flex;
+    max-width: 1280px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin: 30px auto;
+    min-height: 30vh;
+}
+
+.movie {
+    max-width: 550px;
+    margin: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+h3 {
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+img {
+    width: 200px;
+    height: 100%;
+    margin-right: 30px;
+    margin-bottom: 30px;
+}
+
+.add > a {
+    margin-left: 10px;
+    text-decoration: underline;
+    cursor: default;
+    color: #6FE3B2;
+}
+
+.add > i {
+    color: #6FE3B2;
+}
+
+.remove > a {
+    text-decoration: underline;
+    margin-left: 10px;
+    cursor: default;
+    color: #FF6A6A;
+}
+
+.remove > i {
+    color: #FF6A6A;
+}
+
+@media screen and (min-width: 768px) {
+    .movie {
+        flex-direction: row;
+        min-width: 550px;
+    }
+
+    img {
+        margin-bottom: 0px;
+    }
+}

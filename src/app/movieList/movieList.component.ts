@@ -1,6 +1,5 @@
 import { Component, Input, Output, OnInit } from '@angular/core';
 import { Movie } from '../searchCriteria/searchCriteria.component'
-import { watchlistPageComponent } from '../watchlistPage/watchlistPage.component';
 import { Api } from '../services/api.service';
 
 export interface Movie {
@@ -23,21 +22,21 @@ interface ApiData {
 
 export class movieListComponent {
     title = "Movie List";
-    watchList: any[];
+    watchList: Movie[];
     @Input() movie: Movie;
-    @Output() watchlisted = new EventEmitter<Movie>();
-
     watchlist: boolean = false;
     urlFill: string = 'https://image.tmdb.org/t/p/w342';
     constructor(private api: Api) {}
+
     ngOnInit() {
       this.api.watchListArray.subscribe(list => this.watchList = list);
     }
     
     watchlistThis = () => {
       this.watchlist = !this.watchlist;
-      this.watchList.push(this.movie);
+      this.watchList.unshift(this.movie);
       this.api.addMovie(this.watchList)
+      console.log(this.watchList);
     }
 
     getUrl = () => {
