@@ -28,7 +28,7 @@ export class watchlistPageComponent implements OnInit {
     } else {
       return `${this.urlFill}${this.watchList[i].poster_path}`;
     }
-  }
+  };
 
   watchlistRemove = (i) => {
     this.watchList.splice(i, 1);
